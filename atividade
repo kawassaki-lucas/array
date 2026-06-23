@@ -1,0 +1,70 @@
+const prompt = require("prompt-sync")();
+
+let participantes = [];
+let i;
+
+
+for (i = 0; i < 5; i++) {
+    participantes[i] = prompt("Informe o nome do participante: ");
+}
+
+console.log("1 - Mostrar participantes");
+console.log("2 - Adicionar participante no final");
+console.log("3 - Remover último participante");
+console.log("4 - Mostrar quantidade de participantes");
+console.log("5 - Remover primeiro participante");
+console.log("6 - Adicionar participante no início");
+console.log("7 - Verificar se participante existe");
+console.log("8 - Mostrar primeiro participante");
+console.log("9 - Mostrar último participante");
+
+let opcao = Number(prompt("Escolha uma opção (1 a 9): "));
+
+
+if (opcao === 1) {
+    console.log("Participantes: " + participantes);
+}
+
+if (opcao === 2) {
+    let novo = prompt("Nome do participante: ");
+    participantes.push(novo); 
+    console.log("Lista atualizada: " + participantes);
+}
+
+if (opcao === 3) {
+    participantes.pop(); 
+    console.log("Lista atualizada: " + participantes);
+}
+
+if (opcao === 4) {
+    console.log("Quantidade: " + participantes.length);
+}
+
+if (opcao === 5) {
+    participantes.shift(); 
+    console.log("Lista atualizada: " + participantes);
+}
+
+if (opcao === 6) {
+    let novoInicio = prompt("Nome do participante para o início: ");
+    participantes.unshift(novoInicio); 
+    console.log("Lista atualizada: " + participantes);
+}
+
+if (opcao === 7) {
+    let busca = prompt("Quem você quer buscar? ");
+    if (participantes.includes(busca)) {
+        console.log("Existe na lista!");
+    } else {
+        console.log("Não encontrado.");
+    }
+}
+
+if (opcao === 8) {
+    console.log("Primeiro: " + participantes[0]);
+}
+
+if (opcao === 9) {
+    let ultimoPosicao = participantes.length - 1;
+    console.log("Último: " + participantes[ultimoPosicao]);
+}
